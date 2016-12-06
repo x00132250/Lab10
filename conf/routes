@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+
+GET     /                     controllers.HomeController.index(name: String ?="visitor")
+
+GET     /about                      controllers.HomeController.about
+
+# products accepts a parameter default to 0 (Long)
+GET     /products                   controllers.HomeController.products(cat:Long ?=0L)
+
+# Request to load the add product form
+GET     /addproduct                 controllers.HomeController.addProduct
+
+# Data submitted by the form
+POST    /addProductSubmit           controllers.HomeController.addProductSubmit
+
+# Delete a product by an id passed as a parameter
+GET    /delProduct/:id            controllers.HomeController.deleteProduct(id: Long)
+
+#Update a product by id
+GET    /updateProduct/:id         controllers.HomeController.updateProduct(id: Long)
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
